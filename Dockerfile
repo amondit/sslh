@@ -1,5 +1,11 @@
 FROM ubuntu:14.04
 MAINTAINER Arnaud Mondit <github.com/amondit>
 RUN apt-get update -qq && apt-get -y install sslh
-CMD sslh -f -u root -p 0.0.0.0:443 --ssh 172.17.42.1:22 --ssl 172.17.42.1:10443
+ENV SSH_HOST 127.0.0.1
+ENV SSH_PORT 22
+ENV OPENVPN_HOST 127.0.0.1
+ENV OPENVPN_PORT 1194
+ENV HTTPS_HOST 127.0.0.1
+ENV HTTPS_PORT 443
+CMD sslh -f -u root -p 0.0.0.0:443 --ssh $SSH_HOST:$SSH_PORT --ssl $HTTPS_HOST:$HTTPS_PORT --openvpn $OPENVPN_HOST:$OPENVPN_PORT
 EXPOSE 443
