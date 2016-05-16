@@ -5,7 +5,7 @@ Docker image exposing sslh (SSH/HTTPS/OpenVPN multiplexer)
 
 * Start the SSLH server process, expose port 443
 
-     docker run  -d -p 443:443  amondit/sslh
+    docker run  -d -p 443:443  amondit/sslh
 
 * You can set environment variables to define the service routing (here with their default values):
 
