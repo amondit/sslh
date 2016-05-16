@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Arnaud Mondit <github.com/amondit>
-RUN apt-get update && apt-get -y install sslh
+RUN apt-get update \
+    && apt-get -y install sslh \
+    && rm -rf /var/lib/apt/lists/*
 ENV LISTEN_IP 0.0.0.0
 ENV LISTEN_PORT 443
 ENV SSH_HOST localhost
