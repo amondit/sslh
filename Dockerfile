@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Arnaud Mondit <github.com/amondit>
-RUN apt-get update \
-    && apt-get -y install sslh \
+RUN  apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sslh \
     && rm -rf /var/lib/apt/lists/*
 ENV LISTEN_IP 0.0.0.0
 ENV LISTEN_PORT 443
